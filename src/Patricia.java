@@ -27,41 +27,36 @@ public class Patricia {
             String subpalavra = palavra;
             No pai = raiz, no = raiz;
             int indice = 0;
-            while (!subpalavra.isEmpty()) {
-                while (indice >= no.getInfo().length() && !subpalavra.isEmpty() && no.getvLig(subpalavra.charAt(0) - 'a') != null) {
-                    pai = no;
-                    no = no.getvLig(subpalavra.charAt(0) - 'a');
-                    indice = buscarIgualdade(subpalavra, no.getInfo());
-                    subpalavra = subpalavra.substring(indice);
-                }
-                if (!subpalavra.isEmpty()) {
-                    if (indice < no.getInfo().length()) {
-                        No novo = new No(no.getInfo().substring(0, indice), false);
-                        pai.setvLig(novo.getInfo().charAt(0) - 'a', novo);
-                        no.setInfo(no.getInfo().substring(indice));
-                        novo.setvLig(no.getInfo().charAt(0) - 'a', no);
-                        novo.setvLig(subpalavra.charAt(0) - 'a', new No(subpalavra, true));
-                        subpalavra = "";
-                    } else {
-                        if (no.getvLig(subpalavra.charAt(0) - 'a') == null) {
-                            no.setvLig(subpalavra.charAt(0) - 'a', new No(subpalavra, true));
-                            subpalavra = "";
-                        } else {
-                            indice = buscarIgualdade(subpalavra, no.getInfo());
-                            No novo = new No(palavra.substring(indice), true);
-                            no.setvLig(palavra.charAt(indice) - 'a', novo);
-                            indice = palavra.length();
-                        }
-                    }
+            while (indice >= no.getInfo().length() && !subpalavra.isEmpty() && no.getvLig(subpalavra.charAt(0) - 'a') != null) {
+                pai = no;
+                no = no.getvLig(subpalavra.charAt(0) - 'a');
+                indice = buscarIgualdade(subpalavra, no.getInfo());
+                subpalavra = subpalavra.substring(indice);
+            }
+            if (!subpalavra.isEmpty()) {
+                if (indice < no.getInfo().length()) {
+                    No novo = new No(no.getInfo().substring(0, indice), false);
+                    pai.setvLig(novo.getInfo().charAt(0) - 'a', novo);
+                    no.setInfo(no.getInfo().substring(indice));
+                    novo.setvLig(no.getInfo().charAt(0) - 'a', no);
+                    novo.setvLig(subpalavra.charAt(0) - 'a', new No(subpalavra, true));
                 } else {
-                    if (indice == no.getInfo().length())
-                        no.setFim(true);
+                    if (no.getvLig(subpalavra.charAt(0) - 'a') == null)
+                        no.setvLig(subpalavra.charAt(0) - 'a', new No(subpalavra, true));
                     else {
-                        No novo = new No(palavra, true);
-                        no.setInfo(no.getInfo().substring(indice));
-                        novo.setvLig(no.getInfo().charAt(0) - 'a', no);
-                        pai.setvLig(novo.getInfo().charAt(0) - 'a', novo);
+                        indice = buscarIgualdade(subpalavra, no.getInfo());
+                        No novo = new No(palavra.substring(indice), true);
+                        no.setvLig(palavra.charAt(indice) - 'a', novo);
                     }
+                }
+            } else {
+                if (indice == no.getInfo().length())
+                    no.setFim(true);
+                else {
+                    No novo = new No(palavra, true);
+                    no.setInfo(no.getInfo().substring(indice));
+                    novo.setvLig(no.getInfo().charAt(0) - 'a', no);
+                    pai.setvLig(novo.getInfo().charAt(0) - 'a', novo);
                 }
             }
         }
