@@ -7,7 +7,7 @@ public class Main {
                 "bacia", "bambu", "banana", "bandeira", "bacias", "barco", "batata", "beijo", "bicicleta", "bolo", "borboleta",
                 "braco", "brinquedo", "cachorro", "cafe", "cadeira", "caju", "camisa", "caminhao", "campo", "caneta",
                 "cantar", "carro", "casa", "casaco", "castelo", "cebola", "celular", "cenoura", "cidade", "cinema",
-                "circo", "coelho", "comida", "computador", "coracao", "corda", "corpo", "coruja", "crianca", "cristal",
+                "circo", "coelho", "comida", "computador", "coracao", "computado","corda", "corpo", "coruja", "crianca", "cristal",
                 "dado", "dentro", "deus", "dia", "dinheiro", "dormir", "doce", "dragao", "duende", "elefante",
                 "espada", "espelho", "estrela", "faca", "fada", "familia", "farinha", "fazenda", "festa", "fogo",
                 "folha", "fonte", "formiga", "fruta", "galinha", "gato", "geleia", "gelo", "girafa", "golfinho",
