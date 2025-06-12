@@ -53,7 +53,7 @@ public class Patricia {
                 if (indice == no.getInfo().length())
                     no.setFim(true);
                 else {
-                    No novo = new No(palavra, true);
+                    No novo = new No(no.getInfo().substring(0,indice), true);
                     no.setInfo(no.getInfo().substring(indice));
                     novo.setvLig(no.getInfo().charAt(0) - 'a', no);
                     pai.setvLig(novo.getInfo().charAt(0) - 'a', novo);
